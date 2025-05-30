@@ -7,6 +7,14 @@ public class Address
     public string _stateorprovince;
     public string _country;
 
+    public Address(string streetAddress, string city, string stateorprovince, string country)
+    {
+        _streetAddress = streetAddress;
+        _city = city;
+        _stateorprovince = stateorprovince;
+        _country = country;
+    }
+
     public bool USAorNot()
     {
         if (_country == "USA")

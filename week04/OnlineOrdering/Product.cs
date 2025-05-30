@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 public class Product
 {
@@ -8,12 +9,16 @@ public class Product
     public double _price;
     public int _quantity;
 
-    public double ComputeTotalCost(double price, int quantity)
+    public Product(string productid, string name, double price, int quantity)
     {
-        double total;
+        _productid = productid;
+        _name = name;
+        _price = price;
+        _quantity = quantity;
+    }
 
-        total = price * quantity;
-
-        return total;
+    public double ComputeTotalCost()
+    {
+        return _price * _quantity;
     } 
 }
