@@ -2,28 +2,22 @@ using System;
 
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, string description, string points) : base(name, description, points)
+    public EternalGoal(string name, string description, int points) : base(name, description, points)
     {
 
     }
 
-    public override void RecordEvent()
-    {
-        throw new NotImplementedException();
-    }
+    public override int RecordEvent() => _points;
 
-    public override bool IsComplete()
-    {
-        throw new NotImplementedException();
-    }
+    public override bool IsComplete() => false;
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"EternalGoal|{_shortName}|{_description}|{_points}";
     }
 
     public override string GetDetailsString()
     {
-        throw new NotImplementedException();
+        return $"[ ] {_shortName} ({_description})"; 
     }
 }

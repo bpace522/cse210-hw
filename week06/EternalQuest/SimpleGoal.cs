@@ -3,28 +3,32 @@ using System;
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
-    public SimpleGoal(string name, string description, string points, bool isComplete) : base(name, description, points)
+    public SimpleGoal(string name, string description, int points) : base(name, description, points)
     {
-        _isComplete = isComplete;
+        _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        throw new NotImplementedException();
+        _isComplete = true;
+        return _points;
     }
 
-    public override bool IsComplete()
+    public void SetComplete(bool complete)
     {
-        throw new NotImplementedException();
+        _isComplete = complete;
     }
+
+
+    public override bool IsComplete() => _isComplete;
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"SimpleGoal|{_shortName}|{_description}|{_points}|{_isComplete}";
     }
 
     public override string GetDetailsString()
     {
-        throw new NotImplementedException();
+        return $"[{(_isComplete ? "X" : " ")}] {_shortName} ({_description})";        
     }
 }
